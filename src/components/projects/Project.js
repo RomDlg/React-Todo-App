@@ -26,7 +26,6 @@ const StyledProjectTitle = styled.h2`
 
 function Project(props) {
 
-    console.log(props.title)
     return ( 
         <StyledProject>
             <StyledProjectTitle>{props.title}</StyledProjectTitle>

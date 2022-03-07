@@ -1,12 +1,8 @@
 {
-    "project": [
-        {
-            "title": "Test",
-            "id": 1
-        },
-        {
-            "title": "New",
-            "id": 2
-        }
-    ]
+  "project": [
+    {
+      "title": "Nouveau projet",
+      "id": 1
+    }
+  ]
 }

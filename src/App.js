@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { store } from './app/store';
 import { initProjects } from './features/ProjectSlice';
 import axios from 'axios';
+import { getProjects } from './actions/project';
 const AppContainer = styled.div`
 
     display: flex;
@@ -20,8 +21,7 @@ const AppContainer = styled.div`
 function App() {
 
   useEffect(() => {
-    axios.get('http://localhost:8000/project')
-    .then((res) => {store.dispatch(initProjects(res.data))})
+    getProjects()
   })
 
   return (

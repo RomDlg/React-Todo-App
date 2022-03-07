@@ -10,7 +10,7 @@ export const projectSlice = createSlice({
             state.value = action.payload
         },
         createProject: (state, action) => {
-            state.value = action.payload
+            state.value.push(action.payload)
         }
     }
 })

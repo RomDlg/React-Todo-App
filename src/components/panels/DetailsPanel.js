@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledPanel } from '../styles/StyledPanel';
-import { StyledTitle } from '../styles/TitleStyled';
+import { StyledTitle } from '../styles/StyledTitle';
 
 const DetailsPanel = () => {
     return(
