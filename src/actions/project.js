@@ -7,8 +7,22 @@ export const getProjects = () => {
     .then(res => store.dispatch(initProjects(res.data)))
 }
 
-export const postProject = (title) => {
+export const postProject = (title) => {
     axios.post("http://localhost:8000/project", {
         "title": title
     })
+    getProjects()
 }
+
+export const editProject = (id, text) => {
+    axios.put("http://localhost:8000/project/" + id, {
+        title: text
+    })
+    getProjects()
+}
+
+export const deleteProject = (id) => {
+    console.log('delete')
+    axios.delete('http://localhost:8000/project/' + id)
+    getProjects()
+}  

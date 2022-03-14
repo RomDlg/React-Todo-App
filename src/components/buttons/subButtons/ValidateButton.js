@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledValidateButton = styled.button`
-color: black;
 position: relative;
 background-color: rgba(255, 255, 255, .25);
 border: none;

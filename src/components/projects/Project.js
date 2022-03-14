@@ -1,7 +1,14 @@
-import React from 'react';
+import { produceWithPatches } from 'immer';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import DeleteProjectButton from '../buttons/subButtons/DeleteButton';
-import EditProjectButton from '../buttons/subButtons/EditButton';
+import { deleteProject, editProject, getProjects } from '../../actions/project';
+import EditIcon from '../../icons/EditIcon';
+import TrashIcon from '../../icons/TrashIcon';
+import ValidateIcon from '../../icons/ValidateIcon';
+import { StyledDeleteButton } from '../buttons/subButtons/DeleteButton';
+import { StyledEditButton } from '../buttons/subButtons/EditButton';
+import { StyledValidateButton } from '../buttons/subButtons/ValidateButton';
+import { StyledEditableField } from '../styles/EditableField';
 
 const StyledProject = styled.div`
     display: flex;
@@ -26,13 +33,44 @@ const StyledProjectTitle = styled.h2`
 
 function Project(props) {
 
+    const [selectedId, setSelectedId] = useState()
+    const [editable, setEditable] = useState(false)
+    const [currentTitle, setNewTitle] = useState("")
+
     return ( 
-        <StyledProject>
+        <StyledProject onClick={() => setSelectedId(props.id)}>
             <StyledProjectTitle>{props.title}</StyledProjectTitle>
-            <EditProjectButton />
-            <DeleteProjectButton />
+            <StyledEditButton onClick={() => {
+                if (editable) {
+                    setEditable(false);
+                    console.log("Not editable");
+                } else {
+                    setEditable(true);
+                    console.log("Editable");
+                }
+            }}>
+                <EditIcon />
+            </StyledEditButton>
+            <StyledDeleteButton onClick={() => deleteProject(props.id)}>
+                <TrashIcon style />
+            </StyledDeleteButton>
+            {editable && <div>
+                <StyledEditableField placeholder={props.title} onChange={(event) => setNewTitle(event.target.value)} onKeyPress={(event) => {
+                    if (event.key === 'Enter') {
+                        editProject(props.id, currentTitle);
+                        setEditable(false);
+                    }
+                }}
+                />
+                <StyledValidateButton onClick={() => {
+                    editProject(props.id, currentTitle);
+                    setEditable(false);
+                }}>
+                    <ValidateIcon />
+                </StyledValidateButton>
+            </div>}
         </StyledProject>
      );
 }
 
-export default Project;
+export default Project; 
