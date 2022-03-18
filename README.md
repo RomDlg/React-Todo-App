@@ -2,7 +2,8 @@
 
 A simple projects & tasks manager written in React, using Redux & wrapped with Electron
 
-## Current features:
+## Status
 
-- A basic Gui with projects panel & details panel
-- Store project into a json-server
+Actually, there's two branches :
+- the branch main for the developpement -> The latest realease
+- *Incoming* the branch Electron release -> The app wrapped with electron
