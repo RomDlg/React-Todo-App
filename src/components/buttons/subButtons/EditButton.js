@@ -4,11 +4,11 @@ export const StyledEditButton = styled.button`
 background-color: rgba(255, 255, 255, .25);
 align-self: center;
 border: none;
-margin: 0 .25rem;
+margin: .25rem;
 height: 1.6rem;
 width: 1.6rem;
 border-radius: 8px;
-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 transition-duration: .15s;
 
 

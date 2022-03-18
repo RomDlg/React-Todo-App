@@ -19,11 +19,12 @@ const StyledProject = styled.div`
     margin: .5rem;
     padding: 0 .25rem;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     transition-duration: .2s;
 
     &:hover {
         background-color: rgba(255, 255, 255, .5);
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
         transform: scale(1.02);
     }
 `
@@ -57,7 +58,7 @@ function Project(props) {
                 <TrashIcon style />
             </StyledDeleteButton>
             {editable && <div>
-                <StyledEditableField placeholder={props.title} onChange={(event) => setNewTitle(event.target.value)} onKeyPress={(event) => {
+                <StyledEditableField placeholder={props.title} maxLength={24} onChange={(event) => setNewTitle(event.target.value)} onKeyPress={(event) => {
                     if (event.key === 'Enter') {
                         editProject(props.id, currentTitle);
                         setEditable(false);

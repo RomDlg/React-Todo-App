@@ -8,6 +8,8 @@ import { initProjects } from './features/ProjectSlice';
 import axios from 'axios';
 import { getProjects } from './actions/project';
 import { getTasks } from './actions/tasks';
+import { StyledRefreshButton } from './components/buttons/RefreshButton';
+import RefreshIcon from './icons/RefreshIcon';
 const AppContainer = styled.div`
 
     display: flex;
@@ -28,6 +30,11 @@ function App() {
 
   return (
     <AppContainer>
+      <div>
+        <StyledRefreshButton onClick={() => window.location.reload()}>
+          <RefreshIcon />
+        </StyledRefreshButton>
+      </div>
       <ProjectPanel />
       <DetailsPanel />
     </AppContainer>

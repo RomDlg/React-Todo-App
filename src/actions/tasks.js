@@ -2,8 +2,8 @@ import axios from "axios"
 import { store } from "../app/store"
 import { initTask } from "../features/TaskSlice"
 
-export const getTasks = () => {
-    axios.get("http://localhost:8000/task")
+export const getTasks = async () => {
+    await axios.get("http://localhost:8000/task")
     .then(res => store.dispatch(initTask(res.data)))
 }
 

@@ -23,11 +23,12 @@ export const StyledTask = styled.div`
     border-radius: 4px;
 
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     transition-duration: .2s;
 
     &:hover {
         background-color: ${props => props.hoverColor};
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
         transform: scale(1.02);
     }
 `
