@@ -1,7 +1,9 @@
 import { produceWithPatches } from 'immer';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { deleteProject, editProject, getProjects } from '../../actions/project';
+import { select, selectedSlice } from '../../features/SelectedSlice';
 import EditIcon from '../../icons/EditIcon';
 import TrashIcon from '../../icons/TrashIcon';
 import ValidateIcon from '../../icons/ValidateIcon';
@@ -33,12 +35,12 @@ const StyledProjectTitle = styled.h2`
 
 function Project(props) {
 
-    const [selectedId, setSelectedId] = useState()
+    const dispatch = useDispatch()
     const [editable, setEditable] = useState(false)
-    const [currentTitle, setNewTitle] = useState("")
+    const [currentTitle, setNewTitle] = useState(props.title)
 
     return ( 
-        <StyledProject onClick={() => setSelectedId(props.id)}>
+        <StyledProject onClick={() => dispatch(select(props.id))}>
             <StyledProjectTitle>{props.title}</StyledProjectTitle>
             <StyledEditButton onClick={() => {
                 if (editable) {

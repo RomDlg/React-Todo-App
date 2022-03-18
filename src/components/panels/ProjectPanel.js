@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Project from '../projects/Project';
 import { StyledValidateButton } from '../buttons/subButtons/ValidateButton';
 import { StyledCancelButton } from '../buttons/subButtons/CancelButton';
-import { StyledAddProjectButton } from '../buttons/AddProjectButton';
 import ValidateIcon from '../../icons/ValidateIcon';
 import CancelIcon from '../../icons/CancelIcon';
 import { getProjects, postProject } from '../../actions/project';
+import { StyledAddButton } from '../buttons/AddButton';
 
 const ProjectPanel = () => {
 
@@ -29,11 +29,11 @@ const ProjectPanel = () => {
     }
 
     return(
-        <StyledPanel backgroundColor="#004065" flex=".4">
+        <StyledPanel backgroundColor="#004065" flex=".3">
             <StyledTitle color="white">Project Panel</StyledTitle>
             {projects.length == 0 ? <h3 style={{margin: 0, textAlign: 'center', color: 'rgba(0,0,0, .6)'}}>You don't have any project.</h3> : projects.map(project => <Project key={project.id} title={project.title} id={project.id} />)}
-            {toggled ? <div style={{display: 'block'}}>
-                <StyledInput onKeyPress={(event) => event.key === 'Enter' && createProject()} onChange={(event) => setProjectName(event.target.value)} placeholder='New Project'/> 
+            {toggled ? <div>
+                <StyledInput onKeyPress={(event) => event.key === 'Enter' && createProject()} onChange={(event) => setProjectName(event.target.value)} placeholder='New Project' maxLength={12}/> 
                 <StyledValidateButton type='submit' onClick={() => createProject()}>
                     <ValidateIcon />
                     </StyledValidateButton>
@@ -41,14 +41,15 @@ const ProjectPanel = () => {
                     <CancelIcon />
                     </StyledCancelButton>
             </div> :
-             <StyledAddProjectButton onClick={() => {
+             <StyledAddButton onClick={() => {
                 if (toggled) {
                     setToggled(false)
                 } else {
+                    setProjectName("No name")
                     setToggled(true)
                 }
             }}>
-                +</StyledAddProjectButton>}
+                +</StyledAddButton>}
         </StyledPanel>
     )
 }

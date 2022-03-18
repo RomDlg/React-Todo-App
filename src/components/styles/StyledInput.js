@@ -19,6 +19,4 @@ export const StyledInput = styled.input`
     &:focus {
         background-color: rgba(255, 255, 255, .4);
         transform: scale(1.025);
-        
-
 `

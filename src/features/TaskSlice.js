@@ -7,14 +7,20 @@ export const taskSlice = createSlice({
         value: {
             title: "Empty title",
             description: "Empty description",
+            projectId: null,
             done: false
         } 
     },
     reducers: {
-        createTask: (state, action) => {
+        initTask: (state, action) => {
             state.value = action.payload
+        },
+        createTask: (state, action) => {
+            state.value.push(action.payload)
         }
     }
 })
+
+export const {initTask, createTask} = taskSlice.actions;
 
 export default taskSlice.reducer;

@@ -7,6 +7,7 @@ import { store } from './app/store';
 import { initProjects } from './features/ProjectSlice';
 import axios from 'axios';
 import { getProjects } from './actions/project';
+import { getTasks } from './actions/tasks';
 const AppContainer = styled.div`
 
     display: flex;
@@ -22,6 +23,7 @@ function App() {
 
   useEffect(() => {
     getProjects()
+    getTasks()
   })
 
   return (
