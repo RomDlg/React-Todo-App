@@ -1,8 +1,8 @@
 # Todolist App
 
-A simple projects & tasks manager written in React, using Redux & wrapped with Electron
+A simple project manager / To do list app made for learning purpose and made during my studies
 
-## Current features:
-
-- A basic Gui with projects panel & details panel
-- Store project into a json-server
+## Current state :
+- Fully working React app
+  - Just clone this repo and, inside the projet folder, run npm start.
+- Electron intégration to use the app as a desktop app
