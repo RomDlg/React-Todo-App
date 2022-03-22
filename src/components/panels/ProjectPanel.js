@@ -12,6 +12,8 @@ import { getProjects, postProject } from '../../actions/project';
 import { StyledAddButton } from '../buttons/AddButton';
 import { StyledRefreshButton } from '../buttons/RefreshButton';
 import RefreshIcon from '../../icons/RefreshIcon';
+import { current } from '@reduxjs/toolkit';
+import { projectSlice } from '../../features/ProjectSlice';
 
 const ProjectPanel = () => {
 
@@ -32,7 +34,7 @@ const ProjectPanel = () => {
 
     return(
         <StyledPanel backgroundColor="#004065" flex=".3">
-            <StyledTitle color="white">Project Panel</StyledTitle>
+            <StyledTitle color="white">Projects Panel</StyledTitle>
             {projects.length == 0 ? <h3 style={{margin: 0, textAlign: 'center', color: 'rgba(0,0,0, .6)'}}>You don't have any project.</h3> : projects.map(project => <Project key={project.id} title={project.title} id={project.id} />)}
             {toggled ? <div>
                 <StyledInput onKeyPress={(event) => event.key === 'Enter' && createProject()} onChange={(event) => setProjectName(event.target.value)} placeholder='New Project' maxLength={24}/> 

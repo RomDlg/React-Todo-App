@@ -14,7 +14,7 @@ const AppContainer = styled.div`
 
     display: flex;
     flex-flow: row wrap;
-    background-color: #363636;
+    background-color: rgba(0, 0, 0, .25);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -35,6 +35,7 @@ function App() {
           <RefreshIcon />
         </StyledRefreshButton>
       </div>
+      <div className='draggable' style={{width: '100%', height: '3em', position:'absolute'}}></div>
       <ProjectPanel />
       <DetailsPanel />
     </AppContainer>

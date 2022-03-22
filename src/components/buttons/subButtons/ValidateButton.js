@@ -4,7 +4,7 @@ export const StyledValidateButton = styled.button`
 background-color: rgba(255, 255, 255, .25);
 align-self: center;
 border: none;
-margin: 0 .25rem;
+margin: .5em 0 0 .25em;
 height: 1.6rem;
 width: 1.6rem;
 border-radius: 8px;

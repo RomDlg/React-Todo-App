@@ -18,12 +18,12 @@ export const postTask = async(title, description, pid) => {
     getTasks()
 }
 
-export const editTask = async (id, title, description, pid,) => {
+export const editTask = async (id, title, description, pid, done) => {
     await axios.put("http://localhost:8000/task/" + id, {
         "title": title,
         "description": description,
         "projectId": pid,
-        "done": false
+        "done": done
     })
     getTasks()
 }

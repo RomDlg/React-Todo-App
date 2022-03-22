@@ -4,7 +4,7 @@ export const StyledEditButton = styled.button`
 background-color: rgba(255, 255, 255, .25);
 align-self: center;
 border: none;
-margin: .25rem;
+margin: .5em .25em .5em .25em;
 height: 1.6rem;
 width: 1.6rem;
 border-radius: 8px;
