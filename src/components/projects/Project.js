@@ -1,6 +1,6 @@
 import { produceWithPatches } from 'immer';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { deleteProject, editProject, getProjects } from '../../actions/project';
 import { select, selectedSlice } from '../../features/SelectedSlice';
@@ -15,21 +15,23 @@ import { StyledEditableField } from '../styles/EditableField';
 const StyledProject = styled.div`
     display: flex;
     flex-flow: row wrap;
-    background-color: rgba(255, 255, 255, .25);
-    margin: .5rem;
-    padding: 0 .25rem;
+    background-color: ${props => props.color};
+    margin: .25em .4em;
+    padding: .15em .25rem;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     transition-duration: .2s;
 
     &:hover {
-        background-color: rgba(255, 255, 255, .5);
+        background-color: rgba(255, 255, 255, .55);
         box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
         transform: scale(1.02);
     }
 `
 
-const StyledProjectTitle = styled.h2`
+const StyledProjectTitle = styled.h3`
+    flex: 1;
+    text-align: left;
     margin: 0;
     padding: 0.5rem;
 `
@@ -37,11 +39,12 @@ const StyledProjectTitle = styled.h2`
 function Project(props) {
 
     const dispatch = useDispatch()
+    const currentProject = useSelector((state) => state.selected.value)
     const [editable, setEditable] = useState(false)
     const [currentTitle, setNewTitle] = useState(props.title)
 
     return ( 
-        <StyledProject onClick={() => dispatch(select(props.id))}>
+        <StyledProject color={currentProject === props.id ? "rgba(255, 255, 255, 0.45)" : "rgba(255, 255, 255, 0.25)"} onClick={() => dispatch(select(props.id))}>
             <StyledProjectTitle>{props.title}</StyledProjectTitle>
             <StyledEditButton onClick={() => {
                 if (editable) {

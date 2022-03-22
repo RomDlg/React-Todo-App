@@ -16,10 +16,10 @@ import EditIcon from '../../icons/EditIcon';
 
 export const StyledTask = styled.div`
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row wrap;   
     background-color: ${props => props.color};
     margin: .5em 4em;
-    padding: 0 .25rem;
+    padding: .1em .25rem;
     border-radius: 4px;
 
     border: none;
@@ -34,12 +34,16 @@ export const StyledTask = styled.div`
 `
 
 const StyledTaskTitle = styled.h3`
+    flex: 1; 
     display: inline;
-    margin: 1em .2em;
+    text-align: left;
+    margin: .5em 0 0 .25em;
 `
 
 const StyledTaskDescription = styled.p`
-    margin: 1.27em .5em;
+    flex: 1 1 100%;
+    text-align: left;    
+    margin: .25em;
 `
 
 const Task = (props) => {
@@ -61,14 +65,11 @@ const Task = (props) => {
                 </StyledUncheckedBox>
             }
             <StyledTaskTitle>{props.title}</StyledTaskTitle>
-            <StyledTaskDescription>{props.description}</StyledTaskDescription>
             <StyledEditButton onClick={() => {
                 if (editable) {
                     setEditable(false);
-                    console.log("Not editable");
                 } else {
                     setEditable(true);
-                    console.log("Editable");
                 }
             }}>
                 <EditIcon />
@@ -77,15 +78,16 @@ const Task = (props) => {
                 <TrashIcon/>
             </StyledDeleteButton>
             {editable && <div>
-                <StyledEditableField placeholder={props.title} onKeyPress={(event) => event.key === 'Enter' && editTask(props.id, currentTitle, currentDescription, props.projectId)} onChange={(event) => setNewTitle(event.target.value)}/>
-                <StyledEditableField placeholder={props.description} onKeyPress={(event) => event.key === 'Enter' && editTask(props.id, currentTitle, currentDescription, props.projectId)} onChange={(event) => setNewDescription(event.target.value)}/>
+                <StyledEditableField placeholder={props.title} onKeyPress={(event) => {event.key === 'Enter' && editTask(props.id, currentTitle, currentDescription, props.projectId, props.done); event.key === 'Enter' && setEditable(false)}} onChange={(event) => setNewTitle(event.target.value)}/>
+                <StyledEditableField placeholder={props.description} onKeyPress={(event) => {event.key === 'Enter' && editTask(props.id, currentTitle, currentDescription, props.projectId, props.done); event.key === 'Enter' && setEditable(false)}} onChange={(event) => setNewDescription(event.target.value)}/>
                 <StyledValidateButton onClick={() => {
-                    editTask(props.id, currentTitle, currentDescription, props.projectId);
+                    editTask(props.id, currentTitle, currentDescription, props.projectId, props.done);
                     setEditable(false);
                 }}>
                     <ValidateIcon />
                 </StyledValidateButton>
             </div>}
+                <StyledTaskDescription>{props.description}</StyledTaskDescription>
         </StyledTask>
      );
 }

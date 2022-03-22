@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const StyledRefreshButton = styled.button`
 position: absolute;
 float: left;
-top: 3vh;
-right: 1.5vw;
+bottom: 3vh;
+right: 1.8vw;
 background-color: rgba(0, 161, 255, .25);
 border: none;
 height: 26px;

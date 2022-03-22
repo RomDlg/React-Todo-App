@@ -1,17 +1,42 @@
 {
   "project": [
     {
-      "title": "Test",
+      "title": "Desktop App",
       "id": 1
+    },
+    {
+      "title": "Documentations",
+      "id": 2
     }
   ],
   "task": [
     {
-      "title": "First test task",
-      "description": "This is my first test task",
+      "title": "Electron",
+      "description": "Make this app working with electron",
+      "projectId": 1,
+      "done": true,
+      "id": 1
+    },
+    {
+      "title": "Product documentation",
+      "description": "Make the product documentation",
+      "projectId": 2,
+      "done": false,
+      "id": 2
+    },
+    {
+      "title": "Knowledge doc",
+      "description": "About what i learn, my goals etc...",
+      "projectId": 2,
+      "done": false,
+      "id": 3
+    },
+    {
+      "title": "Secure Electron app",
+      "description": "Learn about Electron security and import it into this app",
       "projectId": 1,
       "done": false,
-      "id": 1
+      "id": 4
     }
   ]
 }
