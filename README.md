@@ -1,7 +1,7 @@
 # Current state :
 - Fully working React app
   - Just clone this repo, and, inside the projet folder, run npm start.
-- Electron intégration to use the app as a desktop app
+- Electron integration to use the app as a desktop app
   - Just clone this repo, and, inside the projet electron fodler of this projet: 
     run the command npm install --save-dev electron, and,
     run npm start (from electron folder)
