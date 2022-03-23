@@ -93,3 +93,20 @@ This file contain functions that are executed before the application is loaded. 
 Also, I execute two shell commands to load my React application and the json-server (*run* & *server* node script).
 
 There's no Electron build (due to a build issue), so to run the app, we need to be in the electron folder of this project an run the command *npm install --save-dev electron* (Electron is to big to be pushed into this repo) and *npm start* to start the application.
+
+## Success / Improvements
+
+### Sucesss
+Learning JavaScript by coding a web application with React using Redux allowed me to **know** how to code in Javascript and how to use Node JS.
+
+Make this React application allowed me to really step up in React programming. I understand the philosophy of React (Components, props, state, hooks...) and know how to make a web application with this technology.
+
+Also, use Redux in this app solve my problems about understanding Redux. I can now use Redux store on a web application written with React.
+
+This app is currently fully working and usable by everyone.
+
+### Improvments
+
+If a had to make another project like that in the future, the first thing i will do is to don't waste my time to style my components before the application is working well.
+
+Also, i shoud have try to build my Electron application earlier. Today i have build issue and the application isn't usable as a normal desktop application. Its juste runnable by commands in a shell and from the source code.
