@@ -1,0 +1,17 @@
+{
+  "name": "todo-electron",
+  "version": "1.0.0",
+  "description": "Electron version of the todo app",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "run": " cd .. && npm --silent start",
+    "server": "cd .. && npx json-server --watch ./data/db.json --port 8000"
+  },
+  "author": "Romain Delage",
+  "license": "MIT",
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "electron": "^17.1.2"
+  }
+}
