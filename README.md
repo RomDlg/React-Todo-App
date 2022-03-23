@@ -91,3 +91,5 @@ I also add a preload function :
 
 This file contain functions that are executed before the application is loaded. In my case, i just put electron current version.
 Also, I execute two shell commands to load my React application and the json-server (*run* & *server* node script).
+
+There's no Electron build (due to a build issue), so to run the app, we need to be in the electron folder of this project an run the command *npm install --save-dev electron* (Electron is to big to be pushed into this repo) and *npm start* to start the application.
